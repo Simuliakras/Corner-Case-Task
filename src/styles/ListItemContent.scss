@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+$content-font: "Roboto", sans-serif;
+
+ul {
+  margin: 0;
+  li {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    font-family: $content-font;
+
+    span {
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+
+  li::before {
+    content: url("data:image/svg+xml,%3Csvg width='23' height='23' viewBox='0 0 23 23' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.2469 22.0644C15.9061 22.0644 20.4938 17.5937 20.4938 12.0787C20.4938 6.56377 15.9061 2.09302 10.2469 2.09302C4.5877 2.09302 0 6.56377 0 12.0787C0 17.5937 4.5877 22.0644 10.2469 22.0644Z' fill='white'/%3E%3Cpath d='M10.2469 21.5652C15.6231 21.5652 19.9815 17.3179 19.9815 12.0787C19.9815 6.83952 15.6231 2.59231 10.2469 2.59231C4.87064 2.59231 0.512329 6.83952 0.512329 12.0787C0.512329 17.3179 4.87064 21.5652 10.2469 21.5652Z' stroke='%2300ADAA'/%3E%3Cpath d='M4.09875 9.38259L9.83703 17.1495L21.8731 1.32712' stroke='%2300ADAA' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+    top: -10px;
+    margin-right: 21px;
+  }
+}

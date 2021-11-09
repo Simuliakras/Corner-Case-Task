@@ -1,11 +1,25 @@
-import React from 'react'
+import React from "react";
 
-function ListItemContent() {
-    return (
-        <div>
-            
-        </div>
-    )
+interface ListItemProps {
+  content: string[];
+  index: number;
 }
 
-export default ListItemContent
+function ListItemContent({ content, index }: ListItemProps) {
+  return (
+    <div className="item-inner-content">
+      <ul>
+        {content.map((itemContent, index) => {
+          console.log(itemContent);
+          return (
+            <li key={"item-content-" + index}>
+              <span dangerouslySetInnerHTML={{ __html: itemContent }}></span>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+}
+
+export default ListItemContent;
