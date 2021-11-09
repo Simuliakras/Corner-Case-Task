@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@700&display=swap');
+$main-font: 'Manrope', sans-serif;
+
+body{
+    font-family: $main-font;
+}
+
+.App{
+    width: 1400px;
+    height: 722px;
+    margin: 0 auto;
+}
+
+@import './Header.scss';
+@import './FaqList.scss';
+@import './ListItem.scss';
+@import './ListItemContent.scss';
