@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 import ListItemContent from "./ListItemContent";
 
 interface FaqListProps {
@@ -6,12 +6,24 @@ interface FaqListProps {
   content: string[];
   index: number;
   active: number | null;
-  setActive: (
-    value: number | null | ((prevVar: number | null) => number | null)
-  ) => void;
+  setActive: React.Dispatch<React.SetStateAction<number | null>>;
 }
 
 function ListItem({ title, content, index, active, setActive }: FaqListProps) {
+  const isActive = active === index;
+  const elementRef = useRef<HTMLDivElement>(null);
+  // Recalculate on browser layout change(maybe useLayoutEffect)
+
+  useEffect(() => {
+    if (elementRef.current === null) {
+      return;
+    }
+    elementRef.current.style.maxHeight = isActive
+      ? elementRef.current.scrollHeight + "px"
+      : "0";
+    return () => {};
+  }, [isActive, content, elementRef.current]);
+
   const toggle = (index: number) => {
     if (active === index) {
       return setActive(null);
@@ -21,9 +33,8 @@ function ListItem({ title, content, index, active, setActive }: FaqListProps) {
 
   return (
     <div
-      onClick={(e) => {
+      onClick={() => {
         toggle(index);
-        e.stopPropagation();
       }}
       className={index === active ? "item-wrapper active" : "item-wrapper"}
     >
@@ -33,7 +44,7 @@ function ListItem({ title, content, index, active, setActive }: FaqListProps) {
             <span>{title}</span>
           </div>
         </div>
-        <div className="item-content">
+        <div className="item-content" ref={elementRef}>
           <ListItemContent index={index} content={content} />
         </div>
       </div>

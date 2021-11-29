@@ -6,11 +6,11 @@ interface ListItemProps {
 }
 
 function ListItemContent({ content, index }: ListItemProps) {
+
   return (
     <div className="item-inner-content">
       <ul>
         {content.map((itemContent, index) => {
-          console.log(itemContent);
           return (
             <li key={"item-content-" + index}>
               <span dangerouslySetInnerHTML={{ __html: itemContent }}></span>

@@ -16,7 +16,7 @@ const FaqData = [
   },
   {
     title: "Participate in tech interview",
-    content: ["Talk with HR", "Talk with Tech team"],
+    content: ["Talk with HR", "Talk with Tech team", "Talk with HR", "Talk with Tech team", "Talk with HR", "Talk with Tech team", "Talk with HR", "Talk with Tech team"],
   },
   {
     title: "Receive answer",
